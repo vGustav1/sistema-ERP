@@ -7,7 +7,7 @@ from accounts.models import User
 from companies.models import Enterprise, Employee
 
 class Authetication:
-    def signin(self, email=None, password=None) -> User:
+    def signin(self, email=None, password=None):
         exception_auth = AuthenticationFailed ('Email e/ou senha incorreto(s)')
 
         user_exists = User.objects.filter(email=email).exists()
@@ -22,7 +22,7 @@ class Authetication:
         
         return user 
     
-    def signup(self, name, email, password, type_account='owner', company_id=False) -> User:
+    def signup(self, name, email, password, type_account='owner', company_id=False):
         if not name or name == '':
             raise APIException('O nome não deve ser null')
         
